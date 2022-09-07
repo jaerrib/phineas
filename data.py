@@ -49,6 +49,9 @@ class Selector:
             params=parameters)
         response.raise_for_status()
         data = response.json()
-        suggestion = data["activity"]
-        print(data, suggestion)
+        if 'error' in data:
+            suggestion = "No suggestion found for the chosen parameters." \
+                         "Try again."
+        else:
+            suggestion = data["activity"]
         return suggestion

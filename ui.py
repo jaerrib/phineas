@@ -156,7 +156,6 @@ class AppInterface:
         participants = self.num_participants.get()
         price = str(float(self.price_value.get()) / 10)
         accessibility = str(float(self.access_value.get()) / 100)
-        print(activity_type, participants, price, accessibility)
         if activity_type == "":
             messagebox.showinfo(
                 title="Error",
@@ -165,7 +164,6 @@ class AppInterface:
         elif activity_type == "random":
             activity_type = str(self.selector.get_rand_type())
         data = self.selector.get_suggestion(
-            # self,
             activity_type,
             participants,
             price,
