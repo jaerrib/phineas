@@ -18,7 +18,7 @@ class AppInterface:
         self.selector = selector
         self.root = Tk()
         self.root.title("Phineas")
-        self.root.geometry("480x640")
+        self.root.geometry("600x800")
         self.root.config(padx=50, pady=50, bg=GRAY)
 
         HEADING1 = f.Font(family=FONT_NAME, weight="bold", size=24)
