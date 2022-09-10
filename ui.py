@@ -21,8 +21,8 @@ class AppInterface:
         self.root.geometry("600x800")
         self.root.config(padx=50, pady=50, bg=GRAY)
 
-        HEADING1 = f.Font(family=FONT_NAME, weight="bold", size=24)
-        HEADING2 = f.Font(family=FONT_NAME, weight="bold", size=12)
+        heading1 = f.Font(family=FONT_NAME, weight="bold", size=24)
+        heading2 = f.Font(family=FONT_NAME, weight="bold", size=12)
 
         self.canvas = Canvas(
             self.root,
@@ -36,7 +36,7 @@ class AppInterface:
             width=280,
             text="What should we do today?",
             fill=BLACK,
-            font=HEADING1)
+            font=heading1)
         self.canvas.grid(column=0, row=1, columnspan=2, padx=20, pady=20)
 
         # Activity label and combobox
@@ -44,7 +44,7 @@ class AppInterface:
             self.root,
             text="Activity Type",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             bg=GRAY)
         self.activity_lbl.grid(row=2, column=0, padx=10, pady=5)
         self.selected_activity = StringVar()
@@ -71,10 +71,10 @@ class AppInterface:
             self.root,
             text="Number of Participants",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             bg=GRAY)
         self.participants_lbl.grid(row=2, column=1, padx=10, pady=5)
-        self.num_participants = StringVar(value=1)
+        self.num_participants = IntVar(value=1)
         self.participants_spinbox = ttk.Spinbox(
             self.root,
             from_=1,
@@ -91,10 +91,10 @@ class AppInterface:
             self.root,
             text="Price Range:\nFree(0)-Expensive(10)",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             bg=GRAY)
         self.price_lbl.grid(row=4, column=0, padx=5)
-        self.price_value = StringVar(value=0)
+        self.price_value = IntVar(value=0)
         self.price_spinbox = ttk.Spinbox(
             self.root,
             from_=0,
@@ -109,11 +109,11 @@ class AppInterface:
             self.root,
             text="Ease of Doing",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             bg=GRAY)
         self.access_lbl.grid(row=4, column=1, padx=10, pady=5)
 
-        self.access_value = StringVar(value=0)
+        self.access_value = IntVar(value=0)
         self.access_spinbox = ttk.Spinbox(
             self.root,
             from_=0,
@@ -127,7 +127,7 @@ class AppInterface:
             self.root,
             text="Get a Suggestion\n(using selections)",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             width=15,
             bg=GREEN,
             highlightthickness=0,
@@ -138,7 +138,7 @@ class AppInterface:
             self.root,
             text="Surprise me!\n(completely random)",
             justify="center",
-            font=HEADING2,
+            font=heading2,
             width=15,
             bg=BLUE,
             highlightthickness=0,
@@ -152,8 +152,8 @@ class AppInterface:
         self.change_text(activity)
 
     def suggest_btn_pressed(self):
-        activity_type = self.selected_activity.get()
-        participants = self.num_participants.get()
+        activity_type = str(self.selected_activity.get())
+        participants = str(self.num_participants.get())
         price = str(float(self.price_value.get()) / 10)
         accessibility = str(float(self.access_value.get()) / 100)
         if activity_type == "":
