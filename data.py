@@ -27,7 +27,7 @@ class Selector:
     @staticmethod
     def get_rand_activity():
         response = requests.get(
-            "http://www.boredapi.com/api/activity/")
+            "https://www.boredapi.com/api/activity/")
         response.raise_for_status()
         data = response.json()
         return data["activity"]
@@ -45,7 +45,7 @@ class Selector:
         if activity_type == "random":
             parameters["type"].set = self.get_rand_type()
         response = requests.get(
-            "http://www.boredapi.com/api/activity/",
+            "https://www.boredapi.com/api/activity/",
             params=parameters)
         response.raise_for_status()
         data = response.json()
