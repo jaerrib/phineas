@@ -4,29 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/material_dynamic_neutral_variant10"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="341dp"
-        android:layout_height="510dp"
-        android:layout_marginBottom="150dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        android:id="@+id/textView"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="20dp"
+        android:background="#512DA8"
+        android:gravity="center"
+        android:text="What are we gonna do today?"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="369dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="4dp"
-        android:text="Button"
+        android:id="@+id/button"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="20dp"
+        android:background="#C2185B"
+        android:text="Get a new activity"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
