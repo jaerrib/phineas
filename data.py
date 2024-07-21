@@ -1,5 +1,6 @@
-import requests
 from random import choice
+
+import requests
 
 
 class Selector:
@@ -21,13 +22,13 @@ class Selector:
             "cooking",
             "relaxation",
             "music",
-            "busywork"]
+            "busywork",
+        ]
         return choice(activity_types)
 
     @staticmethod
     def get_rand_activity():
-        response = requests.get(
-            "http://www.boredapi.com/api/activity/")
+        response = requests.get("http://www.boredapi.com/api/activity/")
         response.raise_for_status()
         data = response.json()
         return data["activity"]
@@ -45,13 +46,12 @@ class Selector:
         if activity_type == "random":
             parameters["type"].set = self.get_rand_type()
         response = requests.get(
-            "http://www.boredapi.com/api/activity/",
-            params=parameters)
+            "http://www.boredapi.com/api/activity/", params=parameters
+        )
         response.raise_for_status()
         data = response.json()
-        if 'error' in data:
-            suggestion = "No suggestion found for the chosen parameters." \
-                         "Try again."
+        if "error" in data:
+            suggestion = "No suggestion found for the chosen parameters." "Try again."
         else:
             suggestion = data["activity"]
         return suggestion
