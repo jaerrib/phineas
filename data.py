@@ -28,7 +28,7 @@ class Selector:
 
     @staticmethod
     def get_rand_activity():
-        response = requests.get("http://www.boredapi.com/api/activity/")
+        response = requests.get("https://bored.api.lewagon.com/api/activity/")
         response.raise_for_status()
         data = response.json()
         return data["activity"]
